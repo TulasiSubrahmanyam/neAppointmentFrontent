@@ -15,7 +15,7 @@ function App() {
   const [employeeList, setEmployeeList] = useState([]);
 
   const addEmployee = () => {
-    Axios.post(`${process.env.React_APP_BACKEND_URL}/create`, {
+    Axios.post(`http://newappontment-production.up.railway.app/create`, {
       name: name,
       email: email,
       mobile: mobile,
@@ -37,7 +37,7 @@ function App() {
   };
 
   const getEmployees = () => {
-    Axios.get(`${process.env.React_APP_BACKEND_URL}/customers`).then((response) => {
+    Axios.get(`http://newappontment-production.up.railway.app/customers`).then((response) => {
       setEmployeeList(response.data);
     });
     
@@ -45,7 +45,7 @@ function App() {
   };
 
   const updateEmployeeWage = (id) => {
-    Axios.put(`${process.env.React_APP_BACKEND_URL}/update`, {location:newlocation, timeData: newtimeData, id: id }).then(
+    Axios.put(`http://newappontment-production.up.railway.app/update`, {location:newlocation, timeData: newtimeData, id: id }).then(
       (response) => {
         setEmployeeList(
           employeeList.map((val) => {
@@ -67,7 +67,7 @@ function App() {
   };
 
   const deleteEmployee = (id) => {
-    Axios.delete(`${process.env.React_APP_BACKEND_URL}/create/delete/${id}`).then((response) => {
+    Axios.delete(`http://newappontment-production.up.railway.app/create/delete/${id}`).then((response) => {
       setEmployeeList(
         employeeList.filter((val) => {
           return val.id != id;
